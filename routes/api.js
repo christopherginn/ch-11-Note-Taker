@@ -6,6 +6,7 @@ const {
     readFromFile,
     writeToFile,
     readAndAppend,
+    readAndDelete,
 } = require('../helpers/fsUtils');
 
 router.get('/notes', (req, res) => {
@@ -22,6 +23,11 @@ router.post("/notes", (req, res) => {
     readAndAppend(newNote, "./db/db.json");
     res.json(newNote);
 });
+
+router.delete('/notes/:id', (req, res) => {
+    const filteredData = readAndDelete(req.params.id, './db/db.json');
+    res.json({ ok: true })
+})
 
 
 module.exports = router;

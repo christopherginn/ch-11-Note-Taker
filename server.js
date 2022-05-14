@@ -3,6 +3,7 @@ const path = require("path");
 const fs = require("fs");
 
 const html = require("./routes/html");
+const api = require("./routes/api");
 
 const app = express();
 const PORT = process.env.PORT || 3001;
@@ -14,6 +15,8 @@ app.use(express.json());
 app.post("/api/notes", (req, res) => {
     res.json('posted!')
 })
+
+app.use('/api', api);
 
 app.use('/', html);
 

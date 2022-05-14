@@ -9,7 +9,8 @@ const {
 } = require('../helpers/fsUtils');
 
 router.get('/notes', (req, res) => {
-    res.json('get!');
+    readFromFile("./db/db.json").then((data) => res.json(JSON.parse(data)));
+    
 });
 
 router.post("/notes", (req, res) => {

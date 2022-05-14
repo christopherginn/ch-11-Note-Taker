@@ -12,9 +12,9 @@ app.use(express.static('public'));
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
-app.post("/api/notes", (req, res) => {
-    res.json('posted!')
-})
+// app.post("/api/notes", (req, res) => {
+//     res.json('posted!')
+// })
 
 app.use('/api', api);
 
